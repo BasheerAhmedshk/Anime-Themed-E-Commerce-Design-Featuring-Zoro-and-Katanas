@@ -1,0 +1,302 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Anime-themed color palette */
+:root {
+  --radius: 0.625rem;
+  
+  /* Zoro/Wano Arc inspired colors */
+  --zoro-green: #1a5f3f;
+  --wano-gold: #d4af37;
+  --katana-silver: #c0c0c0;
+  --blood-red: #8b0000;
+  --night-black: #0a0a0a;
+  --anime-blue: #1e40af;
+  --lightning-yellow: #fbbf24;
+  
+  /* Updated theme colors for anime aesthetic */
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --card: #1a1a1a;
+  --card-foreground: #ffffff;
+  --popover: #1a1a1a;
+  --popover-foreground: #ffffff;
+  --primary: #1a5f3f;
+  --primary-foreground: #ffffff;
+  --secondary: #d4af37;
+  --secondary-foreground: #0a0a0a;
+  --muted: #262626;
+  --muted-foreground: #a3a3a3;
+  --accent: #8b0000;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --border: #404040;
+  --input: #262626;
+  --ring: #1a5f3f;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* Anime-style typography */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap');
+
+.anime-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.tech-font {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+}
+
+/* Brush stroke effect */
+.brush-stroke {
+  position: relative;
+  display: inline-block;
+}
+
+.brush-stroke::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--zoro-green), var(--wano-gold));
+  transform: skew(-12deg);
+  opacity: 0.8;
+}
+
+/* Enhanced Zoro swing animation */
+@keyframes zoro-swing {
+  0% { 
+    transform: translateX(-200px) translateY(50px) rotate(-45deg) scale(0.5); 
+    opacity: 0; 
+  }
+  25% { 
+    transform: translateX(-50px) translateY(0px) rotate(-15deg) scale(0.8); 
+    opacity: 0.7; 
+  }
+  50% { 
+    transform: translateX(0) translateY(-10px) rotate(0deg) scale(1); 
+    opacity: 1; 
+  }
+  75% { 
+    transform: translateX(50px) translateY(0px) rotate(15deg) scale(0.8); 
+    opacity: 0.7; 
+  }
+  100% { 
+    transform: translateX(200px) translateY(50px) rotate(45deg) scale(0.5); 
+    opacity: 0; 
+  }
+}
+
+.zoro-swing {
+  animation: zoro-swing 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Lightning effect enhanced */
+@keyframes lightning {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  25% { opacity: 0.3; transform: scale(1.1); }
+  50% { opacity: 0.8; transform: scale(0.9); }
+  75% { opacity: 0.5; transform: scale(1.05); }
+}
+
+.lightning-effect {
+  animation: lightning 0.15s infinite alternate;
+}
+
+/* Enhanced floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(1deg); }
+  50% { transform: translateY(-10px) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Gradient backgrounds */
+.gradient-zoro {
+  background: linear-gradient(135deg, var(--zoro-green), var(--wano-gold));
+}
+
+.gradient-katana {
+  background: linear-gradient(135deg, var(--katana-silver), var(--anime-blue));
+}
+
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Glow effects enhanced */
+.glow-green {
+  box-shadow: 0 0 20px rgba(26, 95, 63, 0.6), 0 0 40px rgba(26, 95, 63, 0.3);
+}
+
+.glow-gold {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.3);
+}
+
+.glow-red {
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.6), 0 0 40px rgba(139, 0, 0, 0.3);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Slow spin animation */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* Pulse glow animation */
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(26, 95, 63, 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(26, 95, 63, 0.8), 0 0 30px rgba(26, 95, 63, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Micro-interactions */
+.interactive-scale {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-scale:hover {
+  transform: scale(1.05);
+}
+
+.interactive-scale:active {
+  transform: scale(0.95);
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .katana-rotate:hover {
+    transform: rotateY(0deg);
+  }
+  
+  .katana-rotate:active {
+    transform: rotateY(180deg);
+  }
+  
+  .anime-title {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .group:hover .group-hover\:scale-110 {
+    transform: scale(1);
+  }
+  
+  .group:active .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border: #ffffff;
+    --muted-foreground: #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .zoro-swing,
+  .lightning-effect,
+  .float-animation,
+  .animate-spin-slow,
+  .animate-pulse-glow {
+    animation: none;
+  }
+  
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
